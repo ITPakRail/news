@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>news.pakrail.online</title>
+<style>
+body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
+    direction: rtl;
+}
+
+/* HEADER */
+header {
+    background:#2e7d32;
+    color:white;
+    padding:20px;
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+}
+
+/* NEWS SECTION */
+.news-section {
+    max-width:1200px;
+    margin:20px auto;
+    padding:10px;
+}
+.news-section h2 {
+    text-align:center;
+    color:#2e7d32;
+    margin-bottom:20px;
+    font-size:24px;
+}
+
+/* NEWS CARDS GRID */
+#newsContainer {
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+    gap:15px;
+}
+
+/* FEATURED CARDS - first 3 full width in row */
+.news-card.featured {
+    grid-column: span 2; /* makes them wider */
+}
+.news-card.featured img {
+    max-height:250px;
+}
+.news-card.featured .news-title {
+    font-size:1.2rem;
+    font-weight:bold;
+}
+.news-card.featured .news-snippet {
+    font-size:1rem;
+}
+
+/* STANDARD CARDS */
+.news-card {
+    background:#fff;
+    border-radius:6px;
+    padding:12px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    transition: transform 0.2s;
+}
+.news-card:hover {
+    transform: scale(1.02);
+}
+.news-card img {
+    width:100%;
+    border-radius:6px;
+    margin-bottom:8px;
+    object-fit:cover;
+    max-height:160px;
+}
+.news-title {
+    font-weight:bold;
+    color:#2e7d32;
+    margin-bottom:8px;
+    font-size:1rem;
+}
+.news-snippet {
+    font-size:0.95rem;
+    line-height:1.5;
+    color:#333;
+    margin-bottom:10px;
+}
+.news-link {
+    text-align:left;
+}
+.news-link a {
+    color:#1a73e8;
+    text-decoration:none;
+}
+.news-link a:hover {
+    text-decoration:underline;
+}
+
+/* Responsive adjustments */
+@media(max-width:900px){
+    .news-card.featured {
+        grid-column: span 1;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>news.pakrail.online</header>
+
+<div class="news-intro" style="text-align:center; color:#555; font-size:1rem; margin:15px 0;">
+news.pakrail.online آپ تک تازہ ترین خبریں معتبر ذرائع سے پہنچاتا ہے۔ ہم آپ کو اہم اور دلچسپ خبروں سے آگاہ رکھتے ہیں اور ہر لمحے تازہ ترین اپ ڈیٹس فراہم کرتے ہیں تاکہ آپ ہر خبر سے باخبر رہیں۔
+</div>
+
+<!-- NEWS SECTION -->
+<div class="news-section">
+    <h2>تازہ خبریں</h2>
+    <div id="newsContainer">
+        <p>Loading news...</p>
+    </div>
+</div>
+
+<script>
+const rssFeeds = [
+    'https://feeds.bbci.co.uk/urdu/rss.xml',
+    'https://www.express.pk/feed',
+    'https://independenturdu.com/rss.xml',
+    'https://roznamakhabrein.com/feed/'
+];
+
+// fetch RSS using rss2json API
+async function fetchRSS(url) {
+    try {
+        const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}`);
+        const data = await res.json();
+        return data.items || [];
+    } catch(err) {
+        console.error('RSS Fetch Error:', err);
+        return [];
+    }
+}
+
+// load news dynamically
+async function loadNews() {
+    const container = document.getElementById('newsContainer');
+    let allNews = [];
+    for(const feed of rssFeeds){
+        const items = await fetchRSS(feed);
+        allNews = allNews.concat(items);
+    }
+
+    // sort by latest date
+    allNews.sort((a,b)=> new Date(b.pubDate) - new Date(a.pubDate));
+
+    container.innerHTML = '';
+    if(allNews.length === 0) {
+        container.innerHTML = '<p>خبریں دستیاب نہیں ہیں۔</p>';
+        return;
+    }
+
+    allNews.forEach((item, index) => {
+        const snippet = item.description ? item.description.replace(/<[^>]*>/g,'').substring(0,120)+'...' : '';
+        const img = item.thumbnail ? `<img src="${item.thumbnail}" alt="news image"/>` : '';
+        const card = document.createElement('div');
+        card.className = 'news-card';
+
+        // first 3 cards featured
+        if(index < 3) card.classList.add('featured');
+
+        card.innerHTML = `
+            ${img}
+            <div class="news-title">${item.title}</div>
+            <div class="news-snippet">${snippet}</div>
+            <div class="news-link"><a href="${item.link}" target="_blank" rel="noopener">مزید پڑھیں</a></div>
+        `;
+        container.appendChild(card);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', loadNews);
+</script>
+</body>
+</html>
