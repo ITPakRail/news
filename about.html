@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="ur">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ہمارے بارے میں | news.pakrail.online</title>
-<meta name="description" content="news.pakrail.online ایک آزاد اردو نیوز پلیٹ فارم ہے جہاں قومی، بین الاقوامی، کھیل، ٹیکنالوجی اور تفریحی خبریں فراہم کی جاتی ہیں۔">
-
+<title>About Us | news.pakrail.online</title>
+<meta name="description" content="news.pakrail.online is an independent Urdu news platform providing national, international, sports, technology, and entertainment news.">
 <style>
-body{margin:0;font-family:Arial;background:#f2f2f2;direction:rtl}
-header{background:#2e7d32;color:#fff;text-align:center;padding:20px}
+body{margin:0;font-family:Arial;background:#f2f2f2;direction:ltr}
+header{background:#2e7d32;color:#fff;text-align:center;padding:20px;position:relative}
+#languageSelector{position:absolute;top:20px;right:20px;padding:5px 10px;font-size:14px;border-radius:4px;border:none;}
 nav{background:#388e3c;text-align:center}
 nav a{color:#fff;text-decoration:none;padding:10px 15px;display:inline-block}
 .container{max-width:900px;margin:20px auto;background:#fff;padding:20px;border-radius:6px;line-height:1.8}
@@ -21,44 +21,77 @@ footer a{color:#fff;margin:0 8px;text-decoration:none}
 <body>
 
 <header>
-  <h1>news.pakrail.online</h1>
-  <p>ہمارے بارے میں</p>
+  news.pakrail.online
+  <select id="languageSelector">
+    <option value="urdu">اردو</option>
+    <option value="arabic">العربية</option>
+    <option value="english" selected>English</option>
+    <option value="german">Deutsch</option>
+  </select>
 </header>
 
 <nav>
-  <a href="/index.html">ہوم</a>
-  <a href="/national.html">قومی</a>
-  <a href="/international.html">بین الاقوامی</a>
-  <a href="/sports.html">کھیل</a>
-  <a href="/technology.html">ٹیکنالوجی</a>
-  <a href="/entertainment.html">تفریح</a>
+  <a href="/index.html">Home</a>
+  <a href="/national.html">National</a>
+  <a href="/international.html">International</a>
+  <a href="/sports.html">Sports</a>
+  <a href="/technology.html">Technology</a>
+  <a href="/entertainment.html">Entertainment</a>
 </nav>
 
-<div class="container">
-<h2>ہم کون ہیں؟</h2>
-<p>
-news.pakrail.online ایک آزاد اور غیر جانبدار اردو نیوز پلیٹ فارم ہے جس کا مقصد
-قارئین کو بروقت، مستند اور آسان زبان میں تازہ ترین خبریں فراہم کرنا ہے۔
-ہم قومی، بین الاقوامی، کھیل، ٹیکنالوجی اور تفریح سمیت مختلف شعبوں سے متعلق
-اہم معلومات یکجا کر کے پیش کرتے ہیں۔
-</p>
-
-<p>
-ہماری کوشش ہے کہ صارفین کو ایک ہی جگہ پر معتبر ذرائع سے حاصل کردہ خبریں
-اردو زبان میں فراہم کی جائیں تاکہ ہر طبقے کے افراد آسانی سے باخبر رہ سکیں۔
-news.pakrail.online کسی خاص سیاسی، مذہبی یا تجارتی ایجنڈے کی نمائندگی نہیں کرتا۔
-</p>
-
-<p>
-ہم قارئین کی رائے اور تجاویز کو قدر کی نگاہ سے دیکھتے ہیں اور
-اپنی سروس کو مسلسل بہتر بنانے کی کوشش کرتے ہیں۔
-</p>
+<div class="container" id="aboutContent">
+  <!-- Content will load here -->
 </div>
 
+<script>
+const aboutTexts = {
+  urdu:`
+    <h2>ہم کون ہیں؟</h2>
+    <p>news.pakrail.online ایک آزاد اور غیر جانبدار اردو نیوز پلیٹ فارم ہے جس کا مقصد قارئین کو بروقت، مستند اور آسان زبان میں تازہ ترین خبریں فراہم کرنا ہے۔ ہم قومی، بین الاقوامی، کھیل، ٹیکنالوجی اور تفریح سمیت مختلف شعبوں سے متعلق اہم معلومات یکجا کر کے پیش کرتے ہیں۔</p>
+    <p>ہماری کوشش ہے کہ صارفین کو ایک ہی جگہ پر معتبر ذرائع سے حاصل کردہ خبریں اردو زبان میں فراہم کی جائیں تاکہ ہر طبقے کے افراد آسانی سے باخبر رہ سکیں۔ news.pakrail.online کسی خاص سیاسی، مذہبی یا تجارتی ایجنڈے کی نمائندگی نہیں کرتا۔</p>
+    <p>ہم قارئین کی رائے اور تجاویز کو قدر کی نگاہ سے دیکھتے ہیں اور اپنی سروس کو مسلسل بہتر بنانے کی کوشش کرتے ہیں۔</p>
+  `,
+  arabic:`
+    <h2>من نحن؟</h2>
+    <p>news.pakrail.online هو منصة أخبار أردية مستقلة وموضوعية تهدف إلى تزويد القراء بأحدث الأخبار بلغة سهلة ومصدقة وفي الوقت المناسب. نجمع المعلومات الهامة من مجالات مختلفة مثل الأخبار الوطنية والدولية والرياضة والتكنولوجيا والترفيه.</p>
+    <p>نسعى لتقديم الأخبار الموثوقة للقراء في مكان واحد وباللغة الأردية حتى يتمكن الجميع من البقاء على اطلاع بسهولة. news.pakrail.online لا يمثل أي أجندة سياسية أو دينية أو تجارية محددة.</p>
+    <p>نحن نقدر آراء واقتراحات القراء ونسعى باستمرار لتحسين خدماتنا.</p>
+  `,
+  english:`
+    <h2>Who We Are</h2>
+    <p>news.pakrail.online is an independent and neutral news platform aiming to provide readers with the latest news in a timely, accurate, and easy-to-understand manner. We cover important information across various fields, including national, international, sports, technology, and entertainment news.</p>
+    <p>Our goal is to provide readers with reliable news from trusted sources in one place so that everyone can stay informed easily. news.pakrail.online does not represent any specific political, religious, or commercial agenda.</p>
+    <p>We value our readers' feedback and suggestions and continuously strive to improve our services.</p>
+  `,
+  german:`
+    <h2>Wer wir sind</h2>
+    <p>news.pakrail.online ist eine unabhängige und neutrale Nachrichtenplattform, die darauf abzielt, den Lesern die neuesten Nachrichten rechtzeitig, genau und leicht verständlich bereitzustellen. Wir decken wichtige Informationen aus verschiedenen Bereichen ab, einschließlich nationaler, internationaler, Sport-, Technologie- und Unterhaltungsnachrichten.</p>
+    <p>Unser Ziel ist es, den Lesern zuverlässige Nachrichten aus vertrauenswürdigen Quellen an einem Ort bereitzustellen, damit jeder leicht informiert bleiben kann. news.pakrail.online verfolgt keine spezifische politische, religiöse oder kommerzielle Agenda.</p>
+    <p>Wir schätzen das Feedback und die Vorschläge unserer Leser und bemühen uns kontinuierlich, unsere Dienste zu verbessern.</p>
+  `
+};
+
+// Function to update content
+function loadAbout(lang){
+  document.getElementById('aboutContent').innerHTML = aboutTexts[lang];
+  document.body.style.direction = (lang==='urdu'||lang==='arabic')?'rtl':'ltr';
+}
+
+// Initial load
+let currentLang = document.getElementById('languageSelector').value;
+loadAbout(currentLang);
+
+// Change language
+document.getElementById('languageSelector').addEventListener('change',(e)=>{
+  currentLang = e.target.value;
+  loadAbout(currentLang);
+});
+</script>
+
 <footer>
-  <a href="/about.html">ہمارے بارے میں</a> |
-  <a href="/privacy.html">پرائیویسی پالیسی</a> |
-  <a href="/contact.html">رابطہ کریں</a>
+  <a href="/about.html">About</a> |
+  <a href="/privacy.html">Privacy Policy</a> |
+  <a href="/contact.html">Contact</a>
   <br>© 2026 news.pakrail.online
 </footer>
 
