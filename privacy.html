@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="ur">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>پرائیویسی پالیسی | news.pakrail.online</title>
-
+<title>Privacy Policy | news.pakrail.online</title>
 <style>
-body{margin:0;font-family:Arial;background:#f2f2f2;direction:rtl}
-header{background:#2e7d32;color:#fff;text-align:center;padding:20px}
+body{margin:0;font-family:Arial;background:#f2f2f2;direction:ltr}
+header{background:#2e7d32;color:#fff;text-align:center;padding:20px;position:relative}
+#languageSelector{position:absolute;top:20px;right:20px;padding:5px 10px;font-size:14px;border-radius:4px;border:none;}
 .container{max-width:900px;margin:20px auto;background:#fff;padding:20px;border-radius:6px;line-height:1.8}
 h2{color:#2e7d32}
 footer{background:#333;color:#fff;text-align:center;padding:15px;font-size:14px}
@@ -18,39 +18,73 @@ footer a{color:#fff;margin:0 8px;text-decoration:none}
 <body>
 
 <header>
-  <h1>news.pakrail.online</h1>
-  <p>پرائیویسی پالیسی</p>
+  news.pakrail.online
+  <select id="languageSelector">
+    <option value="urdu">اردو</option>
+    <option value="arabic">العربية</option>
+    <option value="english" selected>English</option>
+    <option value="german">Deutsch</option>
+  </select>
 </header>
 
-<div class="container">
-<h2>صارف کی رازداری</h2>
-
-<p>
-news.pakrail.online اپنے صارفین کی رازداری کا احترام کرتا ہے۔
-ہم کسی بھی صارف کی ذاتی معلومات جیسے نام، ای میل یا فون نمبر
-بغیر اجازت کے جمع نہیں کرتے۔
-</p>
-
-<p>
-یہ ویب سائٹ تھرڈ پارٹی سروسز (جیسے اشتہارات یا اینالیٹکس)
-استعمال کر سکتی ہے جو کوکیز کے ذریعے عمومی معلومات حاصل کرتی ہیں۔
-یہ معلومات صرف ویب سائٹ کے تجربے کو بہتر بنانے کے لیے استعمال ہوتی ہیں۔
-</p>
-
-<p>
-ہم کسی بھی صارف کی معلومات فروخت، شیئر یا غلط استعمال نہیں کرتے۔
-ویب سائٹ استعمال کر کے آپ ہماری پرائیویسی پالیسی سے اتفاق کرتے ہیں۔
-</p>
-
-<p>
-اگر پرائیویسی پالیسی سے متعلق کوئی سوال ہو تو ہم سے رابطہ کیا جا سکتا ہے۔
-</p>
+<div class="container" id="privacyContent">
+  <!-- Content will load here -->
 </div>
 
+<script>
+// Privacy content per language
+const privacyTexts = {
+  urdu:`
+    <h2>صارف کی رازداری</h2>
+    <p>news.pakrail.online اپنے صارفین کی رازداری کا احترام کرتا ہے۔ ہم کسی بھی صارف کی ذاتی معلومات جیسے نام، ای میل یا فون نمبر بغیر اجازت کے جمع نہیں کرتے۔</p>
+    <p>یہ ویب سائٹ تھرڈ پارٹی سروسز (جیسے اشتہارات یا اینالیٹکس) استعمال کر سکتی ہے جو کوکیز کے ذریعے عمومی معلومات حاصل کرتی ہیں۔ یہ معلومات صرف ویب سائٹ کے تجربے کو بہتر بنانے کے لیے استعمال ہوتی ہیں۔</p>
+    <p>ہم کسی بھی صارف کی معلومات فروخت، شیئر یا غلط استعمال نہیں کرتے۔ ویب سائٹ استعمال کر کے آپ ہماری پرائیویسی پالیسی سے اتفاق کرتے ہیں۔</p>
+    <p>اگر پرائیویسی پالیسی سے متعلق کوئی سوال ہو تو ہم سے رابطہ کیا جا سکتا ہے۔</p>
+  `,
+  arabic:`
+    <h2>خصوصية المستخدم</h2>
+    <p>تحترم news.pakrail.online خصوصية مستخدميها. لا نجمع أي معلومات شخصية مثل الاسم أو البريد الإلكتروني أو رقم الهاتف بدون إذن.</p>
+    <p>قد يستخدم هذا الموقع خدمات الطرف الثالث (مثل الإعلانات أو التحليلات) التي تجمع معلومات عامة عبر الكوكيز. تُستخدم هذه المعلومات لتحسين تجربة الموقع فقط.</p>
+    <p>نحن لا نبيع أو نشارك أو نسيء استخدام معلومات أي مستخدم. باستخدام الموقع، فإنك توافق على سياسة الخصوصية الخاصة بنا.</p>
+    <p>يمكنك الاتصال بنا إذا كان لديك أي استفسار حول سياسة الخصوصية.</p>
+  `,
+  english:`
+    <h2>User Privacy</h2>
+    <p>news.pakrail.online respects the privacy of its users. We do not collect any personal information such as name, email, or phone number without permission.</p>
+    <p>This website may use third-party services (like ads or analytics) that collect general information via cookies. This information is used solely to improve the website experience.</p>
+    <p>We do not sell, share, or misuse any user information. By using this website, you agree to our privacy policy.</p>
+    <p>If you have any questions regarding the privacy policy, you can contact us.</p>
+  `,
+  german:`
+    <h2>Datenschutz</h2>
+    <p>news.pakrail.online respektiert die Privatsphäre seiner Nutzer. Wir sammeln keine persönlichen Daten wie Name, E-Mail oder Telefonnummer ohne Erlaubnis.</p>
+    <p>Diese Website kann Dienste von Drittanbietern (wie Werbung oder Analysen) verwenden, die allgemeine Informationen über Cookies sammeln. Diese Informationen werden ausschließlich zur Verbesserung der Website-Erfahrung verwendet.</p>
+    <p>Wir verkaufen, teilen oder missbrauchen keine Nutzerinformationen. Durch die Nutzung dieser Website stimmen Sie unserer Datenschutzrichtlinie zu.</p>
+    <p>Wenn Sie Fragen zur Datenschutzrichtlinie haben, können Sie uns kontaktieren.</p>
+  `
+};
+
+// Function to update content
+function loadPrivacy(lang){
+  document.getElementById('privacyContent').innerHTML = privacyTexts[lang];
+  document.body.style.direction = (lang==='urdu'||lang==='arabic')?'rtl':'ltr';
+}
+
+// Initial load
+let currentLang = document.getElementById('languageSelector').value;
+loadPrivacy(currentLang);
+
+// Change language
+document.getElementById('languageSelector').addEventListener('change',(e)=>{
+  currentLang = e.target.value;
+  loadPrivacy(currentLang);
+});
+</script>
+
 <footer>
-  <a href="/about.html">ہمارے بارے میں</a> |
-  <a href="/privacy.html">پرائیویسی پالیسی</a> |
-  <a href="/contact.html">رابطہ کریں</a>
+  <a href="/about.html">About</a> |
+  <a href="/privacy.html">Privacy Policy</a> |
+  <a href="/contact.html">Contact</a>
   <br>© 2026 news.pakrail.online
 </footer>
 
