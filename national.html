@@ -1,27 +1,41 @@
 <!DOCTYPE html>
-<html lang="ur">
+<html lang="en">
 <head>
-    <script>(function(s){s.dataset.zone='10541771',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>قومی خبریں - news.pakrail.online</title>
-
+<title>National News - news.pakrail.online</title>
 <style>
-/* RESET & BODY */
-* {box-sizing:border-box;margin:0;padding:0;}
-body {font-family:Arial, sans-serif;background:#f2f2f2;direction:rtl;color:#333;}
+body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
+    direction:ltr;
+    color:#333;
+}
 
-/* HEADER */
+/* Header */
 header {
     background:#2e7d32;
     color:white;
-    padding:20px 10px;
+    padding:20px;
     text-align:center;
+    font-size:28px;
+    font-weight:bold;
+    position:relative;
 }
-header h1 {font-size:28px;margin-bottom:5px;}
-header span {font-size:16px;color:#fff;}
 
-/* NAVIGATION MENU */
+/* Language selector */
+#languageSelector {
+    position:absolute;
+    top:20px;
+    right:20px;
+    padding:5px 10px;
+    font-size:14px;
+    border-radius:4px;
+    border:none;
+}
+
+/* Navigation */
 nav {
     background:#388e3c;
     display:flex;
@@ -38,7 +52,7 @@ nav a {
 }
 nav a:hover {background:#2e7d32;border-radius:4px;}
 
-/* INTRO PARAGRAPH */
+/* Intro */
 .news-intro {
     text-align:center;
     max-width:900px;
@@ -47,7 +61,7 @@ nav a:hover {background:#2e7d32;border-radius:4px;}
     color:#555;
 }
 
-/* NEWS SECTION */
+/* News section */
 .news-section {
     max-width:1200px;
     margin:20px auto;
@@ -60,22 +74,18 @@ nav a:hover {background:#2e7d32;border-radius:4px;}
     font-size:24px;
 }
 
-/* NEWS GRID */
+/* News grid */
 #newsContainer {
     display:grid;
     grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
     gap:15px;
 }
 
-/* FEATURED CARDS */
-.news-card.featured {
-    grid-column:span 2;
-}
-.news-card.featured img {
-    max-height:250px;
-}
+/* Featured cards */
+.news-card.featured { grid-column:span 2; }
+.news-card.featured img { max-height:250px; }
 
-/* STANDARD CARD */
+/* Standard cards */
 .news-card {
     background:#fff;
     border-radius:6px;
@@ -86,7 +96,7 @@ nav a:hover {background:#2e7d32;border-radius:4px;}
     justify-content:space-between;
     transition:transform 0.2s;
 }
-.news-card:hover {transform:scale(1.02);}
+.news-card:hover { transform:scale(1.02); }
 .news-card img {
     width:100%;
     border-radius:6px;
@@ -94,209 +104,173 @@ nav a:hover {background:#2e7d32;border-radius:4px;}
     object-fit:cover;
     max-height:160px;
 }
-.news-title {
-    font-weight:bold;
-    color:#2e7d32;
-    margin-bottom:8px;
-    font-size:1rem;
-}
-.news-snippet {
-    font-size:0.95rem;
-    line-height:1.5;
-    color:#333;
-    margin-bottom:10px;
-}
-.news-link {text-align:left;}
-.news-link a {
-    color:#1a73e8;
-    text-decoration:none;
-}
-.news-link a:hover {text-decoration:underline;}
+.news-title { font-weight:bold; color:#2e7d32; margin-bottom:8px; font-size:1rem; }
+.news-snippet { font-size:0.95rem; line-height:1.5; color:#333; margin-bottom:10px; }
+.news-link { text-align:left; }
+.news-link a { color:#1a73e8; text-decoration:none; }
+.news-link a:hover { text-decoration:underline; }
 
-/* Responsive Adjustments */
 @media(max-width:900px){
     .news-card.featured {grid-column:span 1;}
     nav {flex-direction:column;align-items:center;}
 }
-    footer{background:#333;color:#fff;text-align:center;padding:15px;font-size:14px}
+
+/* Footer */
+footer{background:#333;color:#fff;text-align:center;padding:15px;font-size:14px}
 footer a{color:#fff;margin:0 8px;text-decoration:none}
-    .ad-banner-top {
-    max-width: 100%;
-    text-align: center;
-    margin: 10px 0;
-}
-.ad-banner-top iframe, .ad-banner-top script {
-    width: 100%;
-    max-width: 728px; /* Desktop banner */
-    height: 90px;
+
+/* Ad banners */
+.ad-banner-top, .ad-banner-bottom {max-width:100%;text-align:center;margin:10px 0;}
+.ad-banner-top iframe, .ad-banner-top script, .ad-banner-bottom iframe, .ad-banner-bottom script {
+    width:100%; max-width:728px; height:90px;
 }
 @media(max-width:768px){
-    .ad-banner-top iframe, .ad-banner-top script {
-        max-width: 300px; /* Mobile banner */
-        height: 250px;
-    }
-}
-.ad-banner-bottom {
-    max-width: 100%;
-    text-align: center;
-    margin: 10px 0;
-}
-.ad-banner-bottom iframe, .ad-banner-bottom script {
-    width: 100%;
-    max-width: 728px; /* Desktop */
-    height: 90px;
-}
-@media(max-width:768px){
-    .ad-banner-bottom iframe, .ad-banner-bottom script {
-        max-width: 300px; /* Mobile */
-        height: 250px;
-    }
-}
-   .ad-banner-top {
-    max-width: 100%;
-    text-align: center;
-    margin: 10px 0;
-}
-.ad-banner-top iframe, .ad-banner-top script {
-    width: 100%;
-    max-width: 728px; /* Desktop banner */
-    height: 90px;
-}
-@media(max-width:768px){
-    .ad-banner-top iframe, .ad-banner-top script {
-        max-width: 300px; /* Mobile banner */
-        height: 250px;
-    }
-}
-.ad-banner-bottom {
-    max-width: 100%;
-    text-align: center;
-    margin: 10px 0;
-}
-.ad-banner-bottom iframe, .ad-banner-bottom script {
-    width: 100%;
-    max-width: 728px; /* Desktop */
-    height: 90px;
-}
-@media(max-width:768px){
-    .ad-banner-bottom iframe, .ad-banner-bottom script {
-        max-width: 300px; /* Mobile */
-        height: 250px;
+    .ad-banner-top iframe, .ad-banner-top script, .ad-banner-bottom iframe, .ad-banner-bottom script {
+        max-width:300px; height:250px;
     }
 }
 </style>
-    
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
-    <h1>news.pakrail.online</h1>
-    <span>قومی خبریں</span>
+    news.pakrail.online
+    <select id="languageSelector">
+        <option value="urdu">اردو</option>
+        <option value="arabic">العربية</option>
+        <option value="english" selected>English</option>
+        <option value="german">Deutsch</option>
+    </select>
 </header>
-<!-- Top Banner Here -->
+
+<!-- Top ad -->
 <div class="ad-banner-top">
-  <script>(function(s){s.dataset.zone='10542358',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+<script>(function(s){s.dataset.zone='10542358',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
 </div>
-<!-- NAVIGATION -->
+
+<!-- Navigation -->
 <nav>
-    <a href="/index.html">ہوم</a>
-    <a href="/national.html">قومی</a>
-    <a href="/international.html">بین الاقوامی</a>
-    <a href="/sports.html">کھیل</a>
-    <a href="/technology.html">ٹیکنالوجی</a>
-    <a href="/entertainment.html">تفریح</a>
+    <a href="/index.html">Home</a>
+    <a href="/national.html">National</a>
+    <a href="/international.html">International</a>
+    <a href="/sports.html">Sports</a>
+    <a href="/technology.html">Technology</a>
+    <a href="/entertainment.html">Entertainment</a>
 </nav>
 
-<!-- INTRO -->
-<div class="news-intro">
-یہاں پاکستان کی تازہ ترین خبریں دستیاب ہیں۔ قومی سیاست، معیشت، کھیل اور اہم اپ ڈیٹس آپ تک اردو میں پہنچائی جاتی ہیں تاکہ آپ ہر لمحے باخبر رہیں۔
-</div>
+<div class="news-intro" id="newsIntro">Latest national news from your selected language.</div>
 
-<!-- NEWS SECTION -->
 <div class="news-section">
-    <h2>تازہ قومی خبریں</h2>
+    <h2 id="newsHeading">National News</h2>
     <div id="newsContainer">
-        <p>خبریں لوڈ ہو رہی ہیں...</p>
+        <p>Loading news...</p>
     </div>
 </div>
 
 <script>
-// Urdu News Feeds for National
-const rssFeeds = [
-    'https://www.express.pk/feed', 
-    'https://www.dawn.com/rss', 
-    'https://www.geo.tv/rss/1/'
-];
+// Feeds per language for National News
+const feeds = {
+    urdu: ['https://www.express.pk/feed','https://www.dawn.com/rss','https://www.geo.tv/rss/1/'],
+    arabic: ['https://www.aljazeera.net/aljazeerarss.xml','https://rss.dw.com/xml/rss-ar-all','https://aawsat.com/rss-feed'],
+    english: ['https://feeds.bbci.co.uk/news/rss.xml','https://www.aljazeera.com/xml/rss/all.xml','https://rss.dw.com/xml/rss-en-all'],
+    german: ['https://rss.dw.com/xml/rss-de-all','https://www.spiegel.de/schlagzeilen/index.rss','https://www.faz.net/rss/aktuell/']
+};
 
-// Fetch RSS using rss2json
+const intros = {
+    urdu:'یہاں پاکستان کی تازہ ترین خبریں دستیاب ہیں۔',
+    arabic:'هنا آخر الأخبار الوطنية من باكستان.',
+    english:'Latest national news from Pakistan.',
+    german:'Neueste nationale Nachrichten aus Pakistan.'
+};
+
+const headings = {
+    urdu:'تازہ قومی خبریں',
+    arabic:'آخر الأخبار الوطنية',
+    english:'National News',
+    german:'Nationale Nachrichten'
+};
+
+// Fetch RSS
 async function fetchRSS(url){
     try{
         const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}`);
         const data = await res.json();
         return data.items || [];
-    } catch(err){
-        console.error(err);
-        return [];
-    }
+    } catch(err){ console.error(err); return []; }
 }
 
 // Load news dynamically
-async function loadNews(){
+async function loadNews(language){
     const container = document.getElementById('newsContainer');
+    container.innerHTML = '<p>Loading news...</p>';
     let allNews = [];
-    for(const feed of rssFeeds){
+
+    for(const feed of feeds[language]){
         const items = await fetchRSS(feed);
-        // Filter items containing Urdu characters
-        const urduNews = items.filter(i=> /[\u0600-\u06FF]/.test(i.title));
-        allNews = allNews.concat(urduNews);
+        // Filter by language (for Urdu/Arabic)
+        if(language==='urdu') allNews = allNews.concat(items.filter(i=> /[\u0600-\u06FF]/.test(i.title)));
+        else if(language==='arabic') allNews = allNews.concat(items.filter(i=> /[\u0600-\u06FF]/.test(i.title)));
+        else allNews = allNews.concat(items);
     }
 
-    allNews.sort((a,b)=> new Date(b.pubDate) - new Date(a.pubDate));
-    container.innerHTML = '';
-    if(allNews.length === 0){
-        container.innerHTML = '<p>خبریں دستیاب نہیں ہیں۔</p>';
-        return;
-    }
+    allNews.sort((a,b)=> new Date(b.pubDate)-new Date(a.pubDate));
+    container.innerHTML='';
+
+    if(allNews.length===0){ container.innerHTML='<p>No news available.</p>'; return; }
 
     allNews.forEach((item,index)=>{
+        let imgSrc='';
+        if(item.thumbnail) imgSrc=item.thumbnail;
+        else if(item.enclosure && item.enclosure.link) imgSrc=item.enclosure.link;
+        else if(item.media && item.media.content && item.media.content.url) imgSrc=item.media.content.url;
+        else {
+            const match = item.description ? item.description.match(/<img[^>]+src="([^">]+)"/) : null;
+            if(match) imgSrc=match[1];
+        }
+        const img = imgSrc ? `<img src="${imgSrc}" alt="news">` : '';
         const snippet = item.description ? item.description.replace(/<[^>]*>/g,'').substring(0,120)+'...' : '';
-        // Check for image in thumbnail, enclosure, or media content
-        let imgSrc = '';
-        if(item.thumbnail) imgSrc = item.thumbnail;
-        else if(item.enclosure && item.enclosure.link) imgSrc = item.enclosure.link;
-        else if(item.media && item.media.content && item.media.content.url) imgSrc = item.media.content.url;
-
-        const img = imgSrc ? `<img src="${imgSrc}" alt="news image"/>` : '';
-
         const card = document.createElement('div');
-        card.className = 'news-card';
+        card.className='news-card';
         if(index<3) card.classList.add('featured');
-
-        card.innerHTML = `
+        card.innerHTML=`
             ${img}
             <div class="news-title">${item.title}</div>
             <div class="news-snippet">${snippet}</div>
-            <div class="news-link"><a href="${item.link}" target="_blank" rel="noopener">مزید پڑھیں</a></div>
+            <div class="news-link"><a href="${item.link}" target="_blank" rel="noopener">Read more</a></div>
         `;
         container.appendChild(card);
     });
+
+    // Update intro and heading
+    document.getElementById('newsIntro').textContent = intros[language];
+    document.getElementById('newsHeading').textContent = headings[language];
+
+    // Update direction
+    document.body.style.direction=(language==='urdu'||language==='arabic')?'rtl':'ltr';
 }
 
-document.addEventListener('DOMContentLoaded', loadNews);
+// Initial load
+let currentLang = document.getElementById('languageSelector').value;
+loadNews(currentLang);
+
+// On language change
+document.getElementById('languageSelector').addEventListener('change',(e)=>{
+    currentLang=e.target.value;
+    loadNews(currentLang);
+});
 </script>
-    <!-- Footer کے اوپر -->
+
+<!-- Bottom ad -->
 <div class="ad-banner-bottom">
- <script>(function(s){s.dataset.zone='10542358',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+<script>(function(s){s.dataset.zone='10542358',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
 </div>
 
-
-
 <footer>
-  <a href="/about.html">ہمارے بارے میں</a> |
-  <a href="/privacy.html">پرائیویسی پالیسی</a> |
-  <a href="/contact.html">رابطہ کریں</a>
+  <a href="/about.html">About</a> |
+  <a href="/privacy.html">Privacy Policy</a> |
+  <a href="/contact.html">Contact</a>
   <br>© 2026 news.pakrail.online
 </footer>
+
 </body>
 </html>
