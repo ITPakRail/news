@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>تفریحی خبریں | فلم، ڈرامہ، میوزک | news.pakrail.online</title>
+
+<meta name="description" content="news.pakrail.online پر تازہ ترین تفریحی خبریں، فلم، ڈرامہ، میوزک، شوبز، یوٹیوب اور سوشل میڈیا سے متعلق خبریں اردو میں پڑھیں۔">
+<meta name="keywords" content="تفریحی خبریں, فلم, ڈرامہ, شوبز, میوزک, اداکار, اداکارہ, یوٹیوب خبریں, سوشل میڈیا">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://news.pakrail.online/entertainment.html">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Arial, sans-serif;
+  direction:rtl;
+  background:#f2f2f2;
+  color:#333;
+}
+
+/* HEADER */
+header{
+  background:#2e7d32;
+  color:#fff;
+  text-align:center;
+  padding:20px 10px;
+}
+header h1{font-size:28px;margin-bottom:6px}
+header span{font-size:16px}
+
+/* NAV */
+nav{
+  background:#388e3c;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+nav a{
+  color:#fff;
+  text-decoration:none;
+  padding:10px 15px;
+  font-size:14px;
+}
+nav a:hover{
+  background:#2e7d32;
+  border-radius:4px;
+}
+
+/* INTRO */
+.intro{
+  max-width:900px;
+  margin:18px auto;
+  padding:0 10px;
+  text-align:center;
+  color:#555;
+  font-size:1rem;
+}
+
+/* NEWS SECTION */
+.news-section{
+  max-width:1200px;
+  margin:20px auto;
+  padding:10px;
+}
+.news-section h2{
+  text-align:center;
+  color:#2e7d32;
+  margin-bottom:20px;
+  font-size:24px;
+}
+
+/* GRID */
+#newsContainer{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:16px;
+}
+
+/* CARD */
+.news-card{
+  background:#fff;
+  border-radius:6px;
+  padding:12px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.12);
+  display:flex;
+  flex-direction:column;
+  transition:transform .2s;
+}
+.news-card:hover{transform:scale(1.02)}
+
+.news-card img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+  border-radius:6px;
+  margin-bottom:8px;
+}
+
+.news-card.featured{grid-column:span 2}
+.news-card.featured img{height:260px}
+
+.news-title{
+  font-weight:bold;
+  color:#2e7d32;
+  margin-bottom:6px;
+  font-size:1rem;
+}
+.news-snippet{
+  font-size:.95rem;
+  line-height:1.6;
+  margin-bottom:10px;
+}
+.news-link{text-align:left}
+.news-link a{
+  color:#1a73e8;
+  text-decoration:none;
+}
+.news-link a:hover{text-decoration:underline}
+
+@media(max-width:900px){
+  .news-card.featured{grid-column:span 1}
+  nav{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>news.pakrail.online</h1>
+  <span>تفریحی خبریں</span>
+</header>
+
+<nav>
+  <a href="/index.html">ہوم</a>
+  <a href="/national.html">قومی</a>
+  <a href="/international.html">بین الاقوامی</a>
+  <a href="/sports.html">کھیل</a>
+  <a href="/technology.html">ٹیکنالوجی</a>
+  <a href="/entertainment.html">تفریح</a>
+</nav>
+
+<div class="intro">
+یہاں فلم، ڈرامہ، شوبز، موسیقی، یوٹیوب اور سوشل میڈیا سے متعلق تازہ ترین تفریحی خبریں اردو زبان میں فراہم کی جاتی ہیں۔
+</div>
+
+<div class="news-section">
+  <h2>تازہ تفریحی خبریں</h2>
+  <div id="newsContainer">
+    <p>خبریں لوڈ ہو رہی ہیں…</p>
+  </div>
+</div>
+
+<script>
+const rssFeeds = [
+  'https://feeds.bbci.co.uk/urdu/rss.xml',
+  'https://www.express.pk/feed',
+  'https://independenturdu.com/rss.xml',
+  'https://roznamakhabrein.com/feed/'
+];
+
+// ENTERTAINMENT keywords (TITLE ONLY)
+const entertainmentKeywords = [
+  "فلم","ڈرامہ","سیریل","شوبز","اداکار","اداکارہ",
+  "گلوکار","موسیقی","میوزک","سینما","ہدایتکار",
+  "یوٹیوب","سوشل میڈیا","انسٹاگرام","ٹک ٹاک",
+  "film","movie","drama","actor","actress",
+  "music","song","youtube","netflix","trailer"
+];
+
+// BLOCK politics / hard news
+const blockKeywords = [
+  "ٹرمپ","ایران","امریکا","جنگ","حملہ","فوجی",
+  "سیاست","انتخابات","صدر","وزیر","غزہ",
+  "اسرائیل","یوکرین","معیشت","دہشت",
+  "president","war","attack","iran","israel"
+];
+
+function isEntertainment(item){
+  const title = item.title.toLowerCase();
+
+  const hasEntertainment = entertainmentKeywords.some(k =>
+    title.includes(k.toLowerCase())
+  );
+
+  const hasBlocked = blockKeywords.some(k =>
+    title.includes(k.toLowerCase())
+  );
+
+  return hasEntertainment && !hasBlocked;
+}
+
+async function fetchRSS(url){
+  try{
+    const res = await fetch(
+      `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}`
+    );
+    const data = await res.json();
+    return data.items || [];
+  }catch(e){
+    return [];
+  }
+}
+
+async function loadNews(){
+  const container = document.getElementById("newsContainer");
+  let news = [];
+
+  for(const feed of rssFeeds){
+    const items = await fetchRSS(feed);
+    const filtered = items.filter(item=>{
+      if(!/[\u0600-\u06FF]/.test(item.title)) return false;
+      return isEntertainment(item);
+    });
+    news = news.concat(filtered);
+  }
+
+  news.sort((a,b)=>new Date(b.pubDate)-new Date(a.pubDate));
+  container.innerHTML="";
+
+  if(news.length===0){
+    container.innerHTML="<p>اس وقت تفریحی خبریں دستیاب نہیں ہیں۔</p>";
+    return;
+  }
+
+  news.forEach((item,index)=>{
+    let img="";
+    if(item.thumbnail) img=item.thumbnail;
+    else if(item.enclosure && item.enclosure.link) img=item.enclosure.link;
+
+    const card=document.createElement("div");
+    card.className="news-card"+(index<3?" featured":"");
+
+    card.innerHTML=`
+      ${img?`<img src="${img}" alt="تفریحی خبر">`:""}
+      <div class="news-title">${item.title}</div>
+      <div class="news-snippet">
+        ${item.description?item.description.replace(/<[^>]*>/g,"").slice(0,120)+"...":""}
+      </div>
+      <div class="news-link">
+        <a href="${item.link}" target="_blank" rel="noopener">مزید پڑھیں</a>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", loadNews);
+</script>
+
+</body>
+</html>
