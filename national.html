@@ -1,30 +1,25 @@
 <!DOCTYPE html>
-<html lang="ur" dir="rtl">
+<html lang="ur">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>قومی خبریں - News PakRail</title>
-<style>
-body{margin:0;padding:0;font-family:"Noto Nastaliq Urdu","Tahoma",sans-serif;background:#f0f0f0;color:#333;line-height:1.8}
-.header-panel{background:#28a745;color:#fff;text-align:center;padding:25px 10px;font-size:2rem;font-weight:bold}
-.sub-heading{text-align:center;font-size:1.3rem;margin-top:10px;color:#fff}
-.container{max-width:900px;margin:20px auto;padding:25px;background:#fff;box-shadow:0 0 12px rgba(0,0,0,0.1);border-radius:8px}
-h1{text-align:center;font-size:1.8rem;margin-bottom:20px;color:#0056b3}
-p{font-size:1.15rem;margin-bottom:20px;text-align:justify}
-@media(max-width:768px){.header-panel{font-size:1.5rem;padding:20px 10px}.sub-heading{font-size:1.1rem}h1{font-size:1.4rem}p{font-size:1rem}.container{padding:20px;margin:15px}}
-</style>
+<style>/* same styles as index.html */ body{margin:0;font-family:Arial,sans-serif;background:#f2f2f2;direction:rtl} header{background:#2e7d32;color:white;padding:20px;text-align:center;font-size:28px;font-weight:bold} .news-section{max-width:1200px;margin:20px auto;padding:10px} .news-section h2{text-align:center;color:#2e7d32;margin-bottom:20px;font-size:24px} #newsContainer{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:15px} .news-card.featured{grid-column:span 2} .news-card.featured img{max-height:250px} .news-card.featured .news-title{font-size:1.2rem;font-weight:bold} .news-card.featured .news-snippet{font-size:1rem} .news-card{background:#fff;border-radius:6px;padding:12px;box-shadow:0 2px 6px rgba(0,0,0,0.1);display:flex;flex-direction:column;justify-content:space-between;transition:transform 0.2s} .news-card:hover{transform:scale(1.02)} .news-card img{width:100%;border-radius:6px;margin-bottom:8px;object-fit:cover;max-height:160px} .news-title{font-weight:bold;color:#2e7d32;margin-bottom:8px;font-size:1rem} .news-snippet{font-size:0.95rem;line-height:1.5;color:#333;margin-bottom:10px} .news-link{text-align:left} .news-link a{color:#1a73e8;text-decoration:none} .news-link a:hover{text-decoration:underline}@media(max-width:900px){.news-card.featured{grid-column:span 1}}</style>
 </head>
 <body>
-<div class="header-panel">
-news.pakrail.online
-<div class="sub-heading">قومی خبریں</div>
+<header>news.pakrail.online<br><span style="font-size:16px;">قومی خبریں</span></header>
+<div class="news-intro" style="text-align:center;color:#555;font-size:1rem;margin:15px 0;">پاکستان کی تازہ ترین خبریں معتبر ذرائع سے فوراً یہاں دستیاب ہیں۔ قومی سیاست، معیشت، سماجی خبریں اور دیگر اہم اپ ڈیٹس اس سیکشن میں پڑھیں۔</div>
+
+<div class="news-section">
+<h2>قومی خبریں</h2>
+<div id="newsContainer"><p>Loading news...</p></div>
 </div>
 
-<div class="container">
-<h1>قومی خبریں</h1>
-<p>
-اس سیکشن میں پاکستان کی تازہ ترین اور اہم خبریں فراہم کی جاتی ہیں۔ یہاں آپ کو حکومت، سیاست، معاشرتی حالات، تعلیمی اور اقتصادی خبریں بروقت دستیاب ہوں گی۔ ہماری ٹیم ہر خبر کی تصدیق کرتی ہے تاکہ قارئین کو درست اور معتبر معلومات حاصل ہوں۔ قومی خبریں پڑھ کر آپ ملکی حالات سے ہمیشہ باخبر رہ سکتے ہیں۔
-</p>
-</div>
+<script>
+const rssFeeds=['https://www.express.pk/feed','https://www.dawn.com/feed/?cat=19','https://www.geo.tv/rss/1/'];
+async function fetchRSS(url){try{const res=await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}`);const data=await res.json();return data.items||[]}catch(err){console.error(err);return[]}}
+async function loadNews(){const container=document.getElementById('newsContainer');let allNews=[];for(const feed of rssFeeds){const items=await fetchRSS(feed);allNews=allNews.concat(items)}allNews.sort((a,b)=>new Date(b.pubDate)-new Date(a.pubDate));container.innerHTML='';if(allNews.length===0){container.innerHTML='<p>خبریں دستیاب نہیں ہیں۔</p>';return}allNews.forEach((item,index)=>{const snippet=item.description?item.description.replace(/<[^>]*>/g,'').substring(0,120)+'...':'';const img=item.thumbnail?`<img src="${item.thumbnail}" alt="news image"/>`:"";const card=document.createElement('div');card.className='news-card';if(index<3)card.classList.add('featured');card.innerHTML=`${img}<div class="news-title">${item.title}</div><div class="news-snippet">${snippet}</div><div class="news-link"><a href="${item.link}" target="_blank" rel="noopener">مزید پڑھیں</a></div>`;container.appendChild(card)})}
+document.addEventListener('DOMContentLoaded',loadNews);
+</script>
 </body>
 </html>
