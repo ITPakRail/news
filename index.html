@@ -145,6 +145,22 @@ footer a{color:#fff;margin:0 8px;text-decoration:none}
         height: 250px;
     }
 }
+.ad-banner-bottom {
+    max-width: 100%;
+    text-align: center;
+    margin: 10px 0;
+}
+.ad-banner-bottom iframe, .ad-banner-bottom script {
+    width: 100%;
+    max-width: 728px; /* Desktop */
+    height: 90px;
+}
+@media(max-width:768px){
+    .ad-banner-bottom iframe, .ad-banner-bottom script {
+        max-width: 300px; /* Mobile */
+        height: 250px;
+    }
+}
 
 </style>
     
@@ -236,6 +252,11 @@ async function loadNews() {
 
 document.addEventListener('DOMContentLoaded', loadNews);
 </script>
+<!-- Footer کے اوپر -->
+<div class="ad-banner-bottom">
+<script>(function(s){s.dataset.zone='10542358',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+</div>
+    
     <footer>
   <a href="/about.html">ہمارے بارے میں</a> |
   <a href="/privacy.html">پرائیویسی پالیسی</a> |
