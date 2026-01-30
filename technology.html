@@ -121,6 +121,38 @@ nav a:hover{background:#2e7d32;border-radius:4px;}
 }
   footer{background:#333;color:#fff;text-align:center;padding:15px;font-size:14px}
 footer a{color:#fff;margin:0 8px;text-decoration:none}
+     .ad-banner-top {
+    max-width: 100%;
+    text-align: center;
+    margin: 10px 0;
+}
+.ad-banner-top iframe, .ad-banner-top script {
+    width: 100%;
+    max-width: 728px; /* Desktop banner */
+    height: 90px;
+}
+@media(max-width:768px){
+    .ad-banner-top iframe, .ad-banner-top script {
+        max-width: 300px; /* Mobile banner */
+        height: 250px;
+    }
+}
+.ad-banner-bottom {
+    max-width: 100%;
+    text-align: center;
+    margin: 10px 0;
+}
+.ad-banner-bottom iframe, .ad-banner-bottom script {
+    width: 100%;
+    max-width: 728px; /* Desktop */
+    height: 90px;
+}
+@media(max-width:768px){
+    .ad-banner-bottom iframe, .ad-banner-bottom script {
+        max-width: 300px; /* Mobile */
+        height: 250px;
+    }
+}
 </style>
 </head>
 
