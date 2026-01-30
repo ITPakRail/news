@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="ur">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>رابطہ کریں | news.pakrail.online</title>
-
+<title>Contact Us | news.pakrail.online</title>
 <style>
-body{margin:0;font-family:Arial;background:#f2f2f2;direction:rtl}
-header{background:#2e7d32;color:#fff;text-align:center;padding:20px}
-.container{max-width:800px;margin:20px auto;background:#fff;padding:20px;border-radius:6px}
+body{margin:0;font-family:Arial;background:#f2f2f2;direction:ltr}
+header{background:#2e7d32;color:#fff;text-align:center;padding:20px;position:relative}
+#languageSelector{position:absolute;top:20px;right:20px;padding:5px 10px;font-size:14px;border-radius:4px;border:none;}
+.container{max-width:800px;margin:20px auto;background:#fff;padding:20px;border-radius:6px;line-height:1.8}
 label{display:block;margin-top:10px}
 input,textarea{width:100%;padding:8px;margin-top:5px}
-button{margin-top:10px;background:#2e7d32;color:#fff;border:none;padding:10px;width:100%}
+button{margin-top:10px;background:#2e7d32;color:#fff;border:none;padding:10px;width:100%;cursor:pointer}
 footer{background:#333;color:#fff;text-align:center;padding:15px;font-size:14px}
 footer a{color:#fff;margin:0 8px;text-decoration:none}
 </style>
@@ -20,33 +20,104 @@ footer a{color:#fff;margin:0 8px;text-decoration:none}
 <body>
 
 <header>
-  <h1>news.pakrail.online</h1>
-  <p>رابطہ کریں</p>
+  news.pakrail.online
+  <select id="languageSelector">
+    <option value="urdu">اردو</option>
+    <option value="arabic">العربية</option>
+    <option value="english" selected>English</option>
+    <option value="german">Deutsch</option>
+  </select>
 </header>
 
-<div class="container">
-<p>
-اگر آپ کے پاس کوئی سوال، رائے یا شکایت ہے تو نیچے دیا گیا فارم استعمال کریں۔
-</p>
-
-<form>
-<label>نام</label>
-<input type="text" placeholder="اپنا نام درج کریں">
-
-<label>ای میل</label>
-<input type="email" placeholder="ای میل درج کریں">
-
-<label>پیغام</label>
-<textarea rows="5" placeholder="اپنا پیغام لکھیں"></textarea>
-
-<button type="submit">ارسال کریں</button>
-</form>
+<div class="container" id="contactContent">
+  <!-- Content will load here -->
 </div>
 
+<script>
+const contactTexts = {
+  urdu:`
+    <p>اگر آپ کے پاس کوئی سوال، رائے یا شکایت ہے تو نیچے دیا گیا فارم استعمال کریں۔</p>
+    <form>
+      <label>نام</label>
+      <input type="text" placeholder="اپنا نام درج کریں">
+
+      <label>ای میل</label>
+      <input type="email" placeholder="ای میل درج کریں">
+
+      <label>پیغام</label>
+      <textarea rows="5" placeholder="اپنا پیغام لکھیں"></textarea>
+
+      <button type="submit">ارسال کریں</button>
+    </form>
+  `,
+  arabic:`
+    <p>إذا كان لديك أي سؤال أو تعليق أو شكوى، يرجى استخدام النموذج أدناه.</p>
+    <form>
+      <label>الاسم</label>
+      <input type="text" placeholder="أدخل اسمك">
+
+      <label>البريد الإلكتروني</label>
+      <input type="email" placeholder="أدخل بريدك الإلكتروني">
+
+      <label>الرسالة</label>
+      <textarea rows="5" placeholder="اكتب رسالتك"></textarea>
+
+      <button type="submit">إرسال</button>
+    </form>
+  `,
+  english:`
+    <p>If you have any questions, feedback, or complaints, please use the form below.</p>
+    <form>
+      <label>Name</label>
+      <input type="text" placeholder="Enter your name">
+
+      <label>Email</label>
+      <input type="email" placeholder="Enter your email">
+
+      <label>Message</label>
+      <textarea rows="5" placeholder="Write your message"></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  `,
+  german:`
+    <p>Wenn Sie Fragen, Feedback oder Beschwerden haben, nutzen Sie bitte das untenstehende Formular.</p>
+    <form>
+      <label>Name</label>
+      <input type="text" placeholder="Geben Sie Ihren Namen ein">
+
+      <label>E-Mail</label>
+      <input type="email" placeholder="Geben Sie Ihre E-Mail ein">
+
+      <label>Nachricht</label>
+      <textarea rows="5" placeholder="Schreiben Sie Ihre Nachricht"></textarea>
+
+      <button type="submit">Senden</button>
+    </form>
+  `
+};
+
+// Function to update content
+function loadContact(lang){
+  document.getElementById('contactContent').innerHTML = contactTexts[lang];
+  document.body.style.direction = (lang==='urdu'||lang==='arabic')?'rtl':'ltr';
+}
+
+// Initial load
+let currentLang = document.getElementById('languageSelector').value;
+loadContact(currentLang);
+
+// Change language
+document.getElementById('languageSelector').addEventListener('change',(e)=>{
+  currentLang = e.target.value;
+  loadContact(currentLang);
+});
+</script>
+
 <footer>
-  <a href="/about.html">ہمارے بارے میں</a> |
-  <a href="/privacy.html">پرائیویسی پالیسی</a> |
-  <a href="/contact.html">رابطہ کریں</a>
+  <a href="/about.html">About</a> |
+  <a href="/privacy.html">Privacy Policy</a> |
+  <a href="/contact.html">Contact</a>
   <br>© 2026 news.pakrail.online
 </footer>
 
