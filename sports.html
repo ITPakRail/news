@@ -1,299 +1,198 @@
 <!DOCTYPE html>
-<html lang="ur">
+<html lang="en">
 <head>
-  <script>(function(s){s.dataset.zone='10541771',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>کھیلوں کی خبریں | کرکٹ، فٹبال، اسپورٹس | news.pakrail.online</title>
-
-<meta name="description" content="news.pakrail.online پر تازہ ترین کھیلوں کی خبریں، کرکٹ، فٹبال، ہاکی، والی بال، سوئمنگ اور دیگر اسپورٹس کی خبریں اردو میں پڑھیں۔">
-<meta name="keywords" content="کھیلوں کی خبریں, کرکٹ, فٹبال, ہاکی, اسپورٹس, میچ, ٹورنامنٹ">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://news.pakrail.online/sports.html">
-
+<title>Sports News | news.pakrail.online</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
+body {
+  margin:0;
   font-family:Arial, sans-serif;
-  direction:rtl;
   background:#f2f2f2;
   color:#333;
+  direction:ltr;
 }
-
-/* HEADER */
-header{
+header {
   background:#2e7d32;
   color:#fff;
   text-align:center;
-  padding:20px 10px;
+  padding:20px;
+  position:relative;
 }
-header h1{font-size:28px;margin-bottom:6px}
-header span{font-size:16px}
-
-/* NAV */
-nav{
+#languageSelector {
+  position:absolute;
+  top:20px;
+  right:20px;
+  padding:5px 10px;
+  font-size:14px;
+  border-radius:4px;
+  border:none;
+}
+nav {
   background:#388e3c;
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
 }
-nav a{
+nav a {
   color:#fff;
   text-decoration:none;
   padding:10px 15px;
+  margin:2px;
   font-size:14px;
+  transition:background 0.2s;
 }
-nav a:hover{
-  background:#2e7d32;
-  border-radius:4px;
-}
-
-/* INTRO */
-.intro{
-  max-width:900px;
-  margin:18px auto;
-  padding:0 10px;
-  text-align:center;
-  color:#555;
-  font-size:1rem;
-}
-
-/* NEWS SECTION */
-.news-section{
-  max-width:1200px;
-  margin:20px auto;
-  padding:10px;
-}
-.news-section h2{
-  text-align:center;
-  color:#2e7d32;
-  margin-bottom:20px;
-  font-size:24px;
-}
-
-/* GRID */
-#newsContainer{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-  gap:16px;
-}
-
-/* CARD */
-.news-card{
-  background:#fff;
-  border-radius:6px;
-  padding:12px;
-  box-shadow:0 2px 6px rgba(0,0,0,0.12);
-  display:flex;
-  flex-direction:column;
-  transition:transform .2s;
-}
-.news-card:hover{transform:scale(1.02)}
-
-.news-card img{
-  width:100%;
-  height:170px;
-  object-fit:cover;
-  border-radius:6px;
-  margin-bottom:8px;
-}
-
-.news-card.featured{grid-column:span 2}
-.news-card.featured img{height:260px}
-
-.news-title{
-  font-weight:bold;
-  color:#2e7d32;
-  margin-bottom:6px;
-  font-size:1rem;
-}
-.news-snippet{
-  font-size:.95rem;
-  line-height:1.6;
-  margin-bottom:10px;
-}
-.news-link{text-align:left}
-.news-link a{
-  color:#1a73e8;
-  text-decoration:none;
-}
-.news-link a:hover{text-decoration:underline}
-
-@media(max-width:900px){
-  .news-card.featured{grid-column:span 1}
-  nav{flex-direction:column;align-items:center}
-}
-  footer{background:#333;color:#fff;text-align:center;padding:15px;font-size:14px}
+nav a:hover {background:#2e7d32;border-radius:4px;}
+.intro {text-align:center;max-width:900px;margin:18px auto;font-size:1rem;color:#555;}
+.news-section{max-width:1200px;margin:20px auto;padding:10px;}
+.news-section h2{text-align:center;color:#2e7d32;margin-bottom:20px;font-size:24px;}
+#newsContainer{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;}
+.news-card{background:#fff;border-radius:6px;padding:12px;box-shadow:0 2px 6px rgba(0,0,0,0.12);display:flex;flex-direction:column;transition:transform .2s;}
+.news-card:hover{transform:scale(1.02);}
+.news-card img{width:100%;height:170px;object-fit:cover;border-radius:6px;margin-bottom:8px;}
+.news-card.featured{grid-column:span 2;}
+.news-card.featured img{height:260px;}
+.news-title{font-weight:bold;color:#2e7d32;margin-bottom:6px;font-size:1rem;}
+.news-snippet{font-size:.95rem;line-height:1.6;margin-bottom:10px;}
+.news-link{text-align:left;}
+.news-link a{color:#1a73e8;text-decoration:none;}
+.news-link a:hover{text-decoration:underline;}
+@media(max-width:900px){.news-card.featured{grid-column:span 1;} nav{flex-direction:column;align-items:center;}}
+footer{background:#333;color:#fff;text-align:center;padding:15px;font-size:14px}
 footer a{color:#fff;margin:0 8px;text-decoration:none}
-     .ad-banner-top {
-    max-width: 100%;
-    text-align: center;
-    margin: 10px 0;
-}
-.ad-banner-top iframe, .ad-banner-top script {
-    width: 100%;
-    max-width: 728px; /* Desktop banner */
-    height: 90px;
-}
-@media(max-width:768px){
-    .ad-banner-top iframe, .ad-banner-top script {
-        max-width: 300px; /* Mobile banner */
-        height: 250px;
-    }
-}
-.ad-banner-bottom {
-    max-width: 100%;
-    text-align: center;
-    margin: 10px 0;
-}
-.ad-banner-bottom iframe, .ad-banner-bottom script {
-    width: 100%;
-    max-width: 728px; /* Desktop */
-    height: 90px;
-}
-@media(max-width:768px){
-    .ad-banner-bottom iframe, .ad-banner-bottom script {
-        max-width: 300px; /* Mobile */
-        height: 250px;
-    }
-}
+.ad-banner-top,.ad-banner-bottom{max-width:100%;text-align:center;margin:10px 0;}
+.ad-banner-top iframe,.ad-banner-top script,.ad-banner-bottom iframe,.ad-banner-bottom script{width:100%;max-width:728px;height:90px;}
+@media(max-width:768px){.ad-banner-top iframe,.ad-banner-top script,.ad-banner-bottom iframe,.ad-banner-bottom script{max-width:300px;height:250px;}}
 </style>
 </head>
-
 <body>
 
 <header>
-  <h1>news.pakrail.online</h1>
-  <span>کھیلوں کی خبریں</span>
+  news.pakrail.online
+  <select id="languageSelector">
+    <option value="urdu">اردو</option>
+    <option value="arabic">العربية</option>
+    <option value="english" selected>English</option>
+    <option value="german">Deutsch</option>
+  </select>
 </header>
-<!-- Top Banner Here -->
+
 <div class="ad-banner-top">
-  <script>(function(s){s.dataset.zone='10542358',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+<script>(function(s){s.dataset.zone='10542358',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
 </div>
+
 <nav>
-  <a href="/index.html">ہوم</a>
-  <a href="/national.html">قومی</a>
-  <a href="/international.html">بین الاقوامی</a>
-  <a href="/sports.html">کھیل</a>
-  <a href="/technology.html">ٹیکنالوجی</a>
-  <a href="/entertainment.html">تفریح</a>
+  <a href="/index.html">Home</a>
+  <a href="/national.html">National</a>
+  <a href="/international.html">International</a>
+  <a href="/sports.html">Sports</a>
+  <a href="/technology.html">Technology</a>
+  <a href="/entertainment.html">Entertainment</a>
 </nav>
 
-<div class="intro">
-یہاں آپ کو کرکٹ، فٹبال، ہاکی، والی بال، سوئمنگ، ریسنگ اور دیگر کھیلوں سے متعلق تازہ ترین خبریں اردو زبان میں فراہم کی جاتی ہیں۔
-</div>
+<div class="intro" id="newsIntro">Latest sports news from selected language.</div>
 
 <div class="news-section">
-  <h2>تازہ کھیلوں کی خبریں</h2>
-  <div id="newsContainer">
-    <p>خبریں لوڈ ہو رہی ہیں…</p>
-  </div>
+  <h2 id="newsHeading">Sports News</h2>
+  <div id="newsContainer"><p>Loading news…</p></div>
 </div>
 
 <script>
-const rssFeeds = [
-  'https://feeds.bbci.co.uk/urdu/rss.xml',
-  'https://www.express.pk/feed',
-  'https://independenturdu.com/rss.xml',
-  'https://roznamakhabrein.com/feed/'
-];
+// Feeds per language
+const feeds = {
+  urdu:['https://feeds.bbci.co.uk/urdu/rss.xml','https://www.express.pk/feed','https://independenturdu.com/rss.xml','https://roznamakhabrein.com/feed/'],
+  arabic:['https://www.aljazeera.net/aljazeerarss.xml','https://rss.dw.com/xml/rss-ar-all','https://aawsat.com/rss-feed'],
+  english:['https://www.espn.com/espn/rss/news','https://www.bbc.com/sport/rss.xml','https://feeds.skynews.com/feeds/skynews/sport.xml'],
+  german:['https://rss.dw.com/xml/rss-de-sport','https://www.kicker.de/news.rss','https://www.spiegel.de/sport/index.rss']
+};
 
-// SPORTS keywords (TITLE ONLY)
+// Intro & headings per language
+const intros={
+  urdu:'یہاں تازہ ترین کھیلوں کی خبریں دستیاب ہیں۔',
+  arabic:'هنا آخر أخبار الرياضة من جميع أنحاء العالم.',
+  english:'Latest sports news from around the world.',
+  german:'Neueste Sportnachrichten aus aller Welt.'
+};
+const headings={
+  urdu:'تازہ کھیلوں کی خبریں',
+  arabic:'آخر أخبار الرياضة',
+  english:'Sports News',
+  german:'Sportnachrichten'
+};
+
+// Keywords for sports filter (optional)
 const sportsKeywords = [
-  "کھیل","کرکٹ","فٹبال","ہاکی","والی بال","سوئمنگ","ریس",
-  "میچ","ٹورنامنٹ","ورلڈ کپ","اولمپکس","اسپورٹس",
-  "cricket","football","soccer","hockey","volleyball",
-  "swimming","race","match","tournament","olympic"
+  "کھیل","کرکٹ","فٹبال","ہاکی","والی بال","سوئمنگ","ریس","میچ","ٹورنامنٹ","ورلڈ کپ","اولمپکس","اسپورٹس",
+  "cricket","football","soccer","hockey","volleyball","swimming","race","match","tournament","olympic"
 ];
 
-// BLOCK non-sports / politics
+// Block non-sports content
 const blockKeywords = [
   "سیاست","انتخابات","ٹرمپ","ایران","جنگ","حملہ",
   "فوجی","صدر","وزیر","معیشت","مہنگائی",
   "شوبز","فلم","ڈرامہ","اداکار","اداکارہ"
 ];
 
-function isSports(item){
+function isSports(item,lang){
   const title = item.title.toLowerCase();
-
-  const hasSports = sportsKeywords.some(k =>
-    title.includes(k.toLowerCase())
-  );
-
-  const hasBlocked = blockKeywords.some(k =>
-    title.includes(k.toLowerCase())
-  );
-
+  const hasSports = sportsKeywords.some(k=>title.includes(k.toLowerCase()));
+  const hasBlocked = blockKeywords.some(k=>title.includes(k.toLowerCase()));
+  if(lang==='urdu'||lang==='arabic') return /[\u0600-\u06FF]/.test(title) && hasSports && !hasBlocked;
   return hasSports && !hasBlocked;
 }
 
 async function fetchRSS(url){
   try{
-    const res = await fetch(
-      `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}`
-    );
+    const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}`);
     const data = await res.json();
     return data.items || [];
-  }catch(e){
-    return [];
-  }
+  }catch(e){return [];}
 }
 
-async function loadNews(){
-  const container = document.getElementById("newsContainer");
-  let news = [];
-
-  for(const feed of rssFeeds){
-    const items = await fetchRSS(feed);
-    const filtered = items.filter(item=>{
-      if(!/[\u0600-\u06FF]/.test(item.title)) return false;
-      return isSports(item);
-    });
-    news = news.concat(filtered);
+async function loadNews(lang){
+  const container=document.getElementById('newsContainer');
+  container.innerHTML='<p>Loading news…</p>';
+  let allNews=[];
+  for(const feed of feeds[lang]){
+    const items=await fetchRSS(feed);
+    allNews=allNews.concat(items.filter(item=>isSports(item,lang)));
   }
-
-  news.sort((a,b)=>new Date(b.pubDate)-new Date(a.pubDate));
-  container.innerHTML="";
-
-  if(news.length===0){
-    container.innerHTML="<p>اس وقت کھیلوں کی خبریں دستیاب نہیں ہیں۔</p>";
-    return;
-  }
-
-  news.forEach((item,index)=>{
+  allNews.sort((a,b)=>new Date(b.pubDate)-new Date(a.pubDate));
+  container.innerHTML='';
+  if(allNews.length===0){container.innerHTML='<p>No sports news available.</p>';return;}
+  allNews.forEach((item,index)=>{
     let img="";
     if(item.thumbnail) img=item.thumbnail;
     else if(item.enclosure && item.enclosure.link) img=item.enclosure.link;
-
-    const card=document.createElement("div");
-    card.className="news-card"+(index<3?" featured":"");
-
-    card.innerHTML=`
-      ${img?`<img src="${img}" alt="کھیلوں کی خبر">`:""}
-      <div class="news-title">${item.title}</div>
-      <div class="news-snippet">
-        ${item.description?item.description.replace(/<[^>]*>/g,"").slice(0,120)+"...":""}
-      </div>
-      <div class="news-link">
-        <a href="${item.link}" target="_blank" rel="noopener">مزید پڑھیں</a>
-      </div>
-    `;
+    const card=document.createElement('div');
+    card.className='news-card'+(index<3?' featured':'');
+    const snippet=item.description?item.description.replace(/<[^>]*>/g,'').substring(0,120)+'...':'';
+    card.innerHTML=`${img?`<img src="${img}" alt="news">`:''}<div class="news-title">${item.title}</div><div class="news-snippet">${snippet}</div><div class="news-link"><a href="${item.link}" target="_blank" rel="noopener">Read more</a></div>`;
     container.appendChild(card);
   });
+  document.getElementById('newsIntro').textContent=intros[lang];
+  document.getElementById('newsHeading').textContent=headings[lang];
+  document.body.style.direction=(lang==='urdu'||lang==='arabic')?'rtl':'ltr';
 }
 
-document.addEventListener("DOMContentLoaded", loadNews);
+// Initial load
+let currentLang=document.getElementById('languageSelector').value;
+loadNews(currentLang);
+document.getElementById('languageSelector').addEventListener('change',(e)=>{
+  currentLang=e.target.value;
+  loadNews(currentLang);
+});
 </script>
-  <!-- Footer کے اوپر -->
+
 <div class="ad-banner-bottom">
 <script>(function(s){s.dataset.zone='10542358',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
 </div>
+
 <footer>
-  <a href="/about.html">ہمارے بارے میں</a> |
-  <a href="/privacy.html">پرائیویسی پالیسی</a> |
-  <a href="/contact.html">رابطہ کریں</a>
-  <br>© 2026 news.pakrail.online
+<a href="/about.html">About</a> |
+<a href="/privacy.html">Privacy Policy</a> |
+<a href="/contact.html">Contact</a>
+<br>© 2026 news.pakrail.online
 </footer>
 </body>
 </html>
