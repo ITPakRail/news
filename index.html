@@ -18,6 +18,15 @@ body {
     direction:ltr;
 }
 
+/* ===== ONLY ADDITION: reserve space for side ads ===== */
+@media (min-width: 1200px) {
+    body {
+        padding-left: 170px;
+        padding-right: 170px;
+    }
+}
+/* ===================================================== */
+
 /* Header */
 header {
     background:#2e7d32;
@@ -154,9 +163,7 @@ footer a{
     margin:10px 0;
 }
 
-/* ===============================
-   LEFT & RIGHT VERTICAL ADS
-   =============================== */
+/* LEFT & RIGHT VERTICAL ADS (unchanged) */
 .ad-left,
 .ad-right {
     position:fixed;
@@ -165,16 +172,9 @@ footer a{
     z-index:999;
     text-align:center;
 }
+.ad-left { left:5px; }
+.ad-right { right:5px; }
 
-.ad-left {
-    left:5px;
-}
-
-.ad-right {
-    right:5px;
-}
-
-/* Hide side ads on small screens */
 @media(max-width:1200px){
     .ad-left,
     .ad-right {
@@ -198,7 +198,6 @@ footer a{
   };
 </script>
 <script src="https://www.highperformanceformat.com/a319757ed9dc69be3e33a41c46f05f48/invoke.js"></script>
-
 </div>
 
 <!-- RIGHT VERTICAL AD -->
@@ -213,7 +212,6 @@ footer a{
   };
 </script>
 <script src="https://www.highperformanceformat.com/a319757ed9dc69be3e33a41c46f05f48/invoke.js"></script>
-
 </div>
 
 <header>
